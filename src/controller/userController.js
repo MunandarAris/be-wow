@@ -1,4 +1,4 @@
-const { users, profile } = require("../../models");
+const { users } = require("../../models");
 
 exports.getUsers = async (req,res) => {
 
@@ -29,25 +29,6 @@ exports.getUsers = async (req,res) => {
 
 };
 
-exports.addUser = async (req,res) => {
-
-    try {
-        
-        await users.create(req.body);
-        res.send({
-            status : "Success",
-        });
-
-    } catch (error) {
-        console.log(error);
-        res.send({
-            status : "Failed",
-            message : "Server Error"
-        })
-    }
-
-}
-
 exports.deleteUser = async (req,res) => {
 
     try {
@@ -65,7 +46,7 @@ exports.deleteUser = async (req,res) => {
             data : {
                 id
             }
-        })
+        });
         
     } catch (error) {
         console.log(error);

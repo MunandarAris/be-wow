@@ -18,7 +18,6 @@ router.post('/register',register);
 
 //users
 router.get('/users',getUsers);
-router.post('/user',addUser);
 router.delete('/user/:id',deleteUser);
 
 module.exports = router;
