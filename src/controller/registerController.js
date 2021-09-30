@@ -52,8 +52,7 @@ exports.register = async (req,res) => {
             role : req.body.role
         });
 
-        const SEMENTARA = 'token';
-        const token = jwt.sign({id : dataUser.id},SEMENTARA)
+        const token = jwt.sign({id : dataUser.id},process.env.TOKEN_KEY)
 
         await profile.create({
             statusSubscribe : false,
@@ -65,7 +64,7 @@ exports.register = async (req,res) => {
         res.status(200).send({
            status : "Success",
            data : { 
-               dataUser : {
+               user : {
                    email : req.body.email,
                    token : token
                }
