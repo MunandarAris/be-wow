@@ -10,14 +10,22 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      
+      //transaction to user (one to one) belongsTo
+      transactions.belongsTo(models.users,{
+        as : "user",
+        foreignKey : {
+          name : "idUser"
+        }
+      });
+
     }
   };
   transactions.init({
     idUser: DataTypes.INTEGER,
     proofTransaction: DataTypes.STRING,
     remainingActive: DataTypes.INTEGER,
-    statusUser: DataTypes.BOOLEAN,
+    statusUser: DataTypes.STRING,
     statusPayment: DataTypes.STRING
   }, {
     sequelize,

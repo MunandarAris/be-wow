@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       statusUser: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       statusPayment: {
         type: Sequelize.STRING

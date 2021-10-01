@@ -13,8 +13,7 @@ exports.addBook = async (req,res) => {
         publicationDate : Joi.date().required(),
         author : Joi.string().required(),
         isbn : Joi.number().required(),
-        aboutBook : Joi.string().required(),
-        bookFile : Joi.required()
+        aboutBook : Joi.string().required()
     });
 
     const { error } = schema.validate(req.body);
@@ -33,6 +32,7 @@ exports.addBook = async (req,res) => {
             title : req.body.title,
             pages : req.body.pages,
             author : req.body.author,
+            publicationDate : req.body.publicationDate,
             isbn : req.body.isbn,
             aboutBook : req.body.aboutBook,
             bookFile : req.file.filename,
