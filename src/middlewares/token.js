@@ -14,9 +14,8 @@ exports.token = (req,res,next) => {
     }
 
     try {
-
-        const SEMENTARA = "Token"
-        const verified = jwt.verify(token,SEMENTARA);
+        
+        const verified = jwt.verify(token,process.env.TOKEN_KEY);
         req.user = verified;
         next();
         
@@ -24,8 +23,7 @@ exports.token = (req,res,next) => {
 
         console.log(error);
         res.send({
-            status : "Error",
-            message : "Server Error"
+            message : "Invalid Token"
         });
         
     }

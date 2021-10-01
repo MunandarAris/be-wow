@@ -13,7 +13,7 @@ exports.getUsers = async (req,res) => {
         res.send({
             status : "Success",
             data : {
-                usersData
+                users : usersData
             }
         })
         
